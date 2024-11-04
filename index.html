@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qrcode</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 w-screen h-screen">
+    <div class="flex min-h-full flex-col justify-center px-6 lg:px-8 items-center ">
+        <div class="w-2/5 flex justify-center flex-col items-center gap-5" id="qrcode-wrapper">
+            <div class="w-full hidden" id="generate-qr-container" >
+                <div>
+                    <label for="generate-input" class="block text-lg font-medium text-white">Generate a QR Code</label>
+                    <div class="relative mt-2 flex items-center">
+                      <input type="url" name="input-scanner" id="generate-input" class="block w-full rounded-md border-0 py-3 pl-2 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" placeholder="https://">
+                      <div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+                        <button type="button" class="rounded-md bg-indigo-500 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 w-full" id="generate-qr-btn">Generate QR</button>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-white/25 px-6 py-10">
+                  <div class="text-center">
+                    <svg class="mx-auto h-60 w-20 text-gray-500" id="generate-qr-placeholder" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z" clip-rule="evenodd" />
+                    </svg>
+                    <img src="" alt="" class="mx-auto w-full h-auto object-cover" id="generate-qr-img">
+                    <div class="flex text-sm/6 text-gray-400">
+                      <label for="file-upload" class="relative cursor-pointer rounded-md bg-gray-900 font-semibold text-white focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:ring-offset-gray-900 hover:text-indigo-500">
+                        <!-- <span>Upload a file</span> -->
+                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                      </label>
+                      <!-- <p class="pl-1">or drag and drop</p> -->
+                    </div>
+                    <!-- <p class="text-xs/5 text-gray-400">PNG, JPG, GIF up to 10MB</p> -->
+                  </div>
+                </div>
+            </div>
+
+            <div class="w-full hidden" id="scanner-qr-container">
+                <div>
+                    <label for="generate-input" class="block text-lg font-medium text-white">Scan a QR Code</label>
+                    <div class="relative flex items-center" id="scanner-camera">
+                        <div id="scanner" class="flex justify-center"></div>
+                    </div>
+                  </div>
+
+                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-white/25 px-6 py-10">
+                  <div class="text-center flex gap-3">
+                    <button type="button" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" id="generate-qr-action" data-action-qr="camera">Use my camera</button>
+                    <label for="qr-upload" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer" id="scanner-qr-action" data-action-qr="upload">
+                        Upload an image
+                        <input id="qr-upload" name="file-upload" type="file" class="sr-only">
+                    </label>
+                  </div>
+                </div>
+            </div>
+
+            <button type="button" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-2xl font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 w-full" id="generate-qr-action" data-action="generate">Generate a QR Code</button>
+            
+            <button type="button" class="rounded-md bg-white px-3.5 py-2.5 text-2xl font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-full" id="scanner-qr-action" data-action="scanner">Scan a QR Code</button>
+        </div>
+        
+    </div>
+    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/generate.js"></script>
+    <script type="module" src="./assets/js/scanner.js"></script>
+</body>
+</html>
