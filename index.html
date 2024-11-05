@@ -21,11 +21,17 @@
                   </div>
 
                 <div class="mt-2 flex justify-center rounded-lg border border-dashed border-white/25 px-6 py-10">
-                  <div class="text-center">
+                  <div class="text-center overflow-hidden">
                     <svg class="mx-auto h-60 w-20 text-gray-500" id="generate-qr-placeholder" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
                       <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z" clip-rule="evenodd" />
                     </svg>
-                    <img src="" alt="" class="mx-auto w-full h-auto object-cover" id="generate-qr-img">
+                    <img class="mx-auto w-full h-64 object-cover hidden" id="generate-qr-img">
+                    <a id="download-qr" class="hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white text-center mx-auto mt-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                      </svg>
+                    </a>
+                    
                     <div class="flex text-sm/6 text-gray-400">
                       <label for="file-upload" class="relative cursor-pointer rounded-md bg-gray-900 font-semibold text-white focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:ring-offset-gray-900 hover:text-indigo-500">
                         <!-- <span>Upload a file</span> -->
