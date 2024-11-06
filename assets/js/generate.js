@@ -27,7 +27,7 @@ const downloadQrCode = (path) => {
 const generateInput = document.getElementById('generate-input');
 
 document.getElementById('generate-qr-btn').addEventListener('click', () => {
-    generateQR(generateInput.value);
+    (generateInput.value !== '') ? generateQR(generateInput.value) : alert("Input can't be empty!");
 });
 
 export { generateQR };
