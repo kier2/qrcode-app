@@ -27,13 +27,15 @@ const startScanning = () => {
 }
 
 const handleFileUpload = (event) => {
+    // console.log(event.target.files[0])
     if (event.target.files && event.target.files.length > 0) {
         const file = event.target.files[0];
         const reader = new FileReader();
 
         reader.onload = (e) => {
             const imgSrc = e.target.result;
-            decodeQRCodeFromImage(imgSrc);
+            decodeQRCodeFromImage(file);
+            // console.log(e.target.result);
         };
 
         reader.readAsDataURL(file);
@@ -47,7 +49,7 @@ const decodeQRCodeFromImage = (imgSrc) => {
     html5QrCode.scanFile(imgSrc)
         .then(decodedText => {
             console.log(`Decoded text: ${decodedText}`);
-            document.getElementById('scanResult').innerText = `Scanned: ${decodedText}`;
+            document.querySelector('#scan-result h2').innerText = `Scanned Result: ${decodedText}`;
         })
         .catch(err => {
             console.error(`Error scanning file: ${err}`);
@@ -63,6 +65,10 @@ scannerQrContainer.addEventListener('click', (e) => {
 });
 
 const qrUpload = document.getElementById('qr-upload');
+qrUpload.addEventListener('change', (e) => {
+    // console.log(e.target.files)
+    handleFileUpload(e)
+})
 
 
 
